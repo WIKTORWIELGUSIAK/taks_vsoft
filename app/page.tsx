@@ -72,7 +72,7 @@ const Game: React.FC = () => {
       const hasWon = checkWinCondition(playerData);
 
       if (hasWon) {
-        alert(`Player ${playerNumber} has won!`);
+        alert(`Gracz ${playerNumber} wygrał!`);
         setWinners((prevWinners) => [...prevWinners, playerNumber]);
       }
 
@@ -130,7 +130,7 @@ const Game: React.FC = () => {
     const rule = exchangeRules[fromAnimal]?.tradeFor[toAnimal];
 
     if (!rule) {
-      alert("Invalid trade");
+      alert("Niepoprawna wymiana");
       return;
     }
 
@@ -142,7 +142,7 @@ const Game: React.FC = () => {
       playerData.animals[toAnimal] += toReceive;
 
       alert(
-        `Exchanged ${requiredFrom} ${fromAnimal} for ${toReceive} ${toAnimal}`
+        `Wymieniono ${requiredFrom} ${fromAnimal} na ${toReceive} ${toAnimal}`
       );
 
       const hasWon = checkWinCondition(playerData);
@@ -151,7 +151,7 @@ const Game: React.FC = () => {
 
       if (hasWon) {
         setTimeout(() => {
-          alert(`Player ${playerNumber} has won!`);
+          alert(`Gracz ${playerNumber} wygrał!`);
           setWinners((prevWinners) => [...prevWinners, playerNumber]);
 
           const nextPlayer = findNextActivePlayer(
@@ -163,7 +163,7 @@ const Game: React.FC = () => {
         }, 0);
       }
     } else {
-      alert("Not enough animals to trade");
+      alert("Nie masz wystarczająco zwierząt na taką wymianę");
     }
 
     if (numberOfPlayers !== null && winners.length + 1 >= numberOfPlayers) {
